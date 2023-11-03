@@ -2,9 +2,12 @@ import { useState } from "react";
 import "./App.css";
 
 export default function App() {
+  const [weight, setWeight] = useState(40);
+  const [height, setHeight] = useState(140);
+
   return (
     <div className="App">
-      <Weight />
+      <Weight weight={weight} setWeight={setWeight} />
       <Height />
       <DisplayBMI />
       <Reset />
@@ -12,11 +15,19 @@ export default function App() {
   );
 }
 
-function Weight() {
+function Weight({ weight, setWeight }) {
   return (
     <div>
-      <h1>Weight: Xkg</h1>
-      <input type="range" id="slider" name="slider" min="0" max="100" />
+      <h1>Weight: {weight}kg</h1>
+      <input
+        type="range"
+        id="slider"
+        name="slider"
+        min="40"
+        max="220"
+        value={weight}
+        onChange={(e) => setWeight(e.target.value)}
+      />
     </div>
   );
 }
