@@ -6,8 +6,8 @@ export default function App() {
   const [height, setHeight] = useState(140);
 
   function HandleReset() {
-    useState(40);
-    useState(140);
+    setWeight(40);
+    setHeight(140);
   }
 
   return (
@@ -15,7 +15,7 @@ export default function App() {
       <Weight weight={weight} setWeight={setWeight} />
       <Height height={height} setHeight={setHeight} />
       <DisplayBMI weight={weight} height={height} />
-      <Reset />
+      <Reset reset={HandleReset} />
     </div>
   );
 }
@@ -48,6 +48,7 @@ function Height({ height, setHeight }) {
         min="140"
         max="220"
         onChange={(e) => setHeight(e.target.value)}
+        value={height}
       />
     </div>
   );
@@ -63,6 +64,6 @@ function DisplayBMI({ weight, height }) {
   );
 }
 
-function Reset() {
-  return;
+function Reset({ reset }) {
+  return <button onClick={reset}>Reset</button>;
 }
