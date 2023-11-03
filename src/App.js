@@ -12,18 +12,26 @@ export default function App() {
 
   return (
     <div className="App">
+      <Title />
       <Weight weight={weight} setWeight={setWeight} />
       <Height height={height} setHeight={setHeight} />
       <DisplayBMI weight={weight} height={height} />
-      <Reset reset={HandleReset} />
+      {height > 140 && weight > 40 && <Reset reset={HandleReset} />}
     </div>
   );
 }
 
+function Title() {
+  return (
+    <div>
+      <h1>BMI Caculator</h1>
+    </div>
+  );
+}
 function Weight({ weight, setWeight }) {
   return (
     <div>
-      <h1>Weight: {weight}kg</h1>
+      <h2>Weight: {weight}kg</h2>
       <input
         type="range"
         id="slider"
@@ -40,7 +48,7 @@ function Weight({ weight, setWeight }) {
 function Height({ height, setHeight }) {
   return (
     <div>
-      <h1>Height: {height}cm</h1>
+      <h2>Height: {height}cm</h2>
       <input
         type="range"
         id="slider"
