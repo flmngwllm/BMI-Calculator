@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./App.css";
 
 export default function App() {
@@ -5,6 +6,8 @@ export default function App() {
     <div className="App">
       <Weight />
       <Height />
+      <DisplayBMI />
+      <Reset />
     </div>
   );
 }
@@ -23,6 +26,15 @@ function Height() {
     <div>
       <h1>Height: Xcm</h1>
       <input type="range" id="slider" name="slider" min="0" max="100" />
+    </div>
+  );
+}
+
+function DisplayBMI() {
+  return (
+    <div>
+      <h1>Your BMI is</h1>
+      XXX
     </div>
   );
 }
