@@ -5,11 +5,16 @@ export default function App() {
   const [weight, setWeight] = useState(40);
   const [height, setHeight] = useState(140);
 
+  function HandleReset() {
+    useState(40);
+    useState(140);
+  }
+
   return (
     <div className="App">
       <Weight weight={weight} setWeight={setWeight} />
       <Height height={height} setHeight={setHeight} />
-      <DisplayBMI />
+      <DisplayBMI weight={weight} height={height} />
       <Reset />
     </div>
   );
@@ -48,11 +53,12 @@ function Height({ height, setHeight }) {
   );
 }
 
-function DisplayBMI() {
+function DisplayBMI({ weight, height }) {
+  const BMI = Math.round((weight / (height * height)) * 10000);
   return (
     <div>
       <h1>Your BMI is</h1>
-      XXX
+      {BMI}
     </div>
   );
 }
