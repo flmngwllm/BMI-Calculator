@@ -8,7 +8,7 @@ export default function App() {
   return (
     <div className="App">
       <Weight weight={weight} setWeight={setWeight} />
-      <Height />
+      <Height height={height} setHeight={setHeight} />
       <DisplayBMI />
       <Reset />
     </div>
@@ -32,11 +32,18 @@ function Weight({ weight, setWeight }) {
   );
 }
 
-function Height() {
+function Height({ height, setHeight }) {
   return (
     <div>
-      <h1>Height: Xcm</h1>
-      <input type="range" id="slider" name="slider" min="0" max="100" />
+      <h1>Height: {height}cm</h1>
+      <input
+        type="range"
+        id="slider"
+        name="slider"
+        min="140"
+        max="220"
+        onChange={(e) => setHeight(e.target.value)}
+      />
     </div>
   );
 }
